@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation"; // Import usePathname for routing
+import { usePathname } from "next/navigation"; // Import usePathname for routingg
 import StaticNavbar from "./StaticNavbar";
 import FloatingNavbar from "./FloatingNavbar";
 
