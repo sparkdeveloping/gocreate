@@ -1,18 +1,22 @@
 "use client";
 
-import { usePathname } from "next/navigation"; // Import usePathname for routingg
+import { usePathname } from "next/navigation"; // Import usePathname for routing
 import StaticNavbar from "./StaticNavbar";
 import FloatingNavbar from "./FloatingNavbar";
 
 export default function DynamicNavbar() {
   const pathname = usePathname();
 
-  return pathname === "/join" ? (
-    <FloatingNavbar />
-  ) : (
-    <>
-      <StaticNavbar />
-      <FloatingNavbar />
-    </>
-  );
+  // Show StaticNavbar and FloatingNavbar only on "/" or "/home"
+  if (pathname === "/" || pathname === "/home") {
+    return (
+      <>
+        <StaticNavbar />
+        <FloatingNavbar />
+      </>
+    );
+  }
+
+  // Show only FloatingNavbar on other pages
+  return <FloatingNavbar />;
 }
